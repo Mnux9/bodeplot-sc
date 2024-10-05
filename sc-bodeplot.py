@@ -150,11 +150,10 @@ while(freq < options.fstop):
     # Capture the waveforms on channel 1 and channel 2
     ch1_data, ch2_data = scope.read_data(data_points)#,raw=True)#timeout=1)
     voltage_data1 = scope.scale_read_data(ch1_data[skip:], channelGain, channel=1 )
-    outfile      = open("outfile.csv", "w")
-    #outfile.write(str(voltage_data1))
+    
     voltage_data2 = scope.scale_read_data(ch2_data[skip:], channelGain, channel=2 )
     timing_data, rate_label = scope.convert_sampling_rate_to_measurement_times(data_points-skip, sample_id)
-    outfile.write(str(timing_data))
+    
 
     # Calculate the RMS value and DC value
     rms1 = 0
